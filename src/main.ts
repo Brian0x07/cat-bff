@@ -3,11 +3,13 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 4000);
 }
 bootstrap();
 
 /*
+
+NVM vs NPM：NPM 是 Node 的包管理器（管理项目依赖），NVM 是 Node 版本管理器（管理 Node 本身）
 
 下面给出该项目主要文件/文件夹的简短作用说明：
 
