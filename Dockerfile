@@ -15,6 +15,9 @@ RUN npm run build
 RUN npm prune --production
 
 FROM node:20-alpine AS runner
+
+ENV NODE_OPTIONS=--dns-result-order=ipv4first
+
 WORKDIR /app
 ENV NODE_ENV=production
 

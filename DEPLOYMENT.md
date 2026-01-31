@@ -192,6 +192,16 @@ docker build -t cat-bff .
 
 # 容器跑起来
 docker run -d -p 3000:3000 --name cat-bff cat-bff
+
+docker run -d \
+  --name cat-bff \
+  --network host \
+  -e http_proxy="socks5://127.0.0.1:10808" \
+  -e https_proxy="socks5://127.0.0.1:10808" \
+  -e no_proxy="localhost,127.0.0.1" \
+  cat-bff
+
+
 # 删除容器
 docker rm -f cat-bff
 
@@ -212,3 +222,6 @@ docker build -t cat-bff .
 docker rm -f cat-bff
 docker run ...
 
+
+# log
+docker logs --since 5m --tail 100 cat-bff | grep -i error
