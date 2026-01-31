@@ -212,7 +212,10 @@ docker rm -f $(docker ps -aq)
 # 强制删除单个镜像
 docker rmi -f 镜像仓库名:标签/镜像ID
 
-
+# 自动重启
+docker update --restart=unless-stopped cat-bff
+# 批量改所有正在运行的
+docker update --restart=unless-stopped $(docker ps -q)
 
 
 # 改代码->>>>>>
