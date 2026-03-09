@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // await app.listen(process.env.PORT ?? 4000);
+  app.enableCors() // 允許所有來源、所有方法、所有 header
   await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
 }
 bootstrap();
