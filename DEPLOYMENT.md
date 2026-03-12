@@ -175,18 +175,20 @@ docker images -a
 # build 镜像 通过工程生成镜像
 
 docker build -t cat-bff .
+docker build -t cat-bff:2.0 .
 
 # 容器跑起来
 
 docker run -d -p 3000:3000 --name cat-bff cat-bff
 
 # 禁用 ipv6
+
 docker run \
  --sysctl net.ipv6.conf.all.disable_ipv6=1 \
  --sysctl net.ipv6.conf.default.disable_ipv6=1 \
  -d -p 3000:3000 \
  --name cat-bff \
- cat-bff
+ cat-bff:2.0
 
 <!-- docker run -d \
   --name cat-bff \
